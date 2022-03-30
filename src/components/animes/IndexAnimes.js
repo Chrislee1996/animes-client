@@ -24,17 +24,19 @@ const IndexAnimes = (props) => {
     if (animes.length > 0) {
         animesJsx = animes.map(anime => (
             <li key={anime.id}>
-                {anime.title}
+                <h4> {anime.titleAndYear} </h4>
+                <img src={`${anime.imageOfAnime}`} width='200'/>
+                <h6>{anime.status} </h6> 
             </li>
         ))
     }
 
     return (
         <>
-            <h3>Animes</h3>
-            <ul>
+            <h3 class='text-center'>Animes</h3>
+            <ol>
                 {animesJsx}
-            </ul>
+            </ol>
         </>
     )
 }

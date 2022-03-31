@@ -45,12 +45,12 @@ const IndexAnimes = (props) => {
     }
 
     return (
-        <>
+        <div className='bg-dark'>
             <h3 class='text-center'>Animes</h3>
             <div style={cardContainerLayout}>
                 {animeCards}
             </div>
-        </>
+        </div>
     )
 }
 

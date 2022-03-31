@@ -9,7 +9,7 @@ const linkStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Item className='m-2'>
-			<Link to='addPet' style={linkStyle}>
+			<Link to='addAnime' style={linkStyle}>
 				Add new Anime
 			</Link>
 		</Nav.Item>
@@ -51,7 +51,7 @@ const Header = ({ user }) => (
 	<Navbar bg='secondary' variant='dark' expand='md'>
 		<Navbar.Brand className='m-2'>
             <Link to='/' style={linkStyle}>
-				Pets App
+				Anime App
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />

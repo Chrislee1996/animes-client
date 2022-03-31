@@ -34,17 +34,20 @@ const AnimeForm = (props) => {
                 <Form.Check
                     label='Is the anime on going?'
                     name='onGoing'
+                    defaultChecked={anime.onGoing}
                     onChange={handleChange}
             />
                 <Form.Label>Year Of Release</Form.Label>
                 <Form.Control
+                    type='number'
                     placeholder="Year of Release"
                     value={anime.yearOfRelease}
                     name='yearOfRelease'
                     onChange={handleChange}
             />
-                <Form.Label>Image of Anime</Form.Label>
+                <Form.Label>Enter Url of Anime</Form.Label>
                 <Form.Control
+                    type='url'
                     placeholder="Image"
                     value={anime.image}
                     name='imageOfAnime'

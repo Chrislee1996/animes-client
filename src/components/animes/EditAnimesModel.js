@@ -14,10 +14,12 @@ const EditAnimesModel = (props) => {
             const name = e.target.name
             let value = e.target.value
 
-            if (name === 'On-Going' && !e.target.checked){
+            if(name === "onGoing" && e.target.checked){
+                value = true
+            } else if (name === "onGoing" && !e.target.checked){
                 value = false
             }
-
+    
             if (e.target.type === 'number') {
                 value = parseInt(e.target.value)
             }

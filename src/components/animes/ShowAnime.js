@@ -48,7 +48,7 @@ const ShowAnime = (props) => {
             <Card className='text-info bg-dark'>
                 <Card.Header className="display-4">{anime.title}</Card.Header>
                 <small style={{position:"absolute",top:0, right:0}}>Genre: {anime.genre}</small><br/>
-                <small style={{position:"absolute",top:50 , right:0}}>Status:{anime.onGoing ? "On-Going" : 'Finished Airing'}</small>
+                <small style={{position:"absolute",top:50 , right:0}}>Status:{anime.onGoing ? 'Still Airing' : 'Finished Airing'}</small>
                 <small style={{position:"absolute",top:100 , right:0}}>Year of Release: {anime.yearOfRelease}</small><br/>
                 <Card.Header><img src={`${anime.imageOfAnime}`} width='250' height='300'/></Card.Header>
                 <Card.Body>

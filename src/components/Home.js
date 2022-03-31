@@ -1,4 +1,6 @@
 import IndexAnimes from "./animes/IndexAnimes"
+import ShowAnimes from "./animes/ShowAnimes"
+
 
 const Home = (props) => {
 	// const { msgAlert, user } = props
@@ -7,6 +9,7 @@ const Home = (props) => {
 	return (
 		<>
 			<IndexAnimes/>
+			<ShowAnimes/>
 		</>
 	)
 }

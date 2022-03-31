@@ -33,9 +33,9 @@ const ShowAnime = (props) => {
     return (
         <Container className='fluid'> 
             <Card className='text-info bg-dark'>
-                <Card.Header>{anime.title}</Card.Header>
+                <Card.Header className="display-4">{anime.title}</Card.Header>
                 <Card.Header><img src={`${anime.imageOfAnime}`} width='250' height='300'/></Card.Header>
-                <Card.Header style={{position:"absolute",top:0, right:0}} >Synopsis: {anime.description}</Card.Header><br/>
+                <Card.Header style={{position:"absolute",top:50 , right:0}} >Synopsis: {anime.description}</Card.Header><br/>
                 <Card.Body>
                     <Card.Text>
                         <small>Year of Release: {anime.yearOfRelease}</small><br/>

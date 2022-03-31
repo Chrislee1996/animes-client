@@ -13,6 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ShowAnime from './components/animes/ShowAnime'
+import CreateAnime from './components/animes/CreateAnime'
 
 const App = () => {
 
@@ -69,6 +70,13 @@ const App = () => {
                 <ChangePassword msgAlert={msgAlert} user={user} />
               </RequireAuth>}
           />
+		  	<Route
+				path='/addAnime'
+				element={
+				<RequireAuth user={user}>
+					<CreateAnime msgAlert={msgAlert} user={user} />
+				</RequireAuth>}
+			/>
 		  	<Route
 				path='/animes/:id'
 				element={<ShowAnime msgAlert={msgAlert} user={user} />}

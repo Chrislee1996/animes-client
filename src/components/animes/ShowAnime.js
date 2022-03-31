@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import {showCurrentAnime, updateAnime} from '../../api/animes'
-import {useParams} from 'react-router-dom'
+import {showCurrentAnime, updateAnime, removeAnime} from '../../api/animes'
+import {useParams, useNavigate} from 'react-router-dom'
 import { Spinner,Container,Card, Button} from 'react-bootstrap'
 import EditAnimesModel from './EditAnimesModel'
 
@@ -12,6 +12,7 @@ const ShowAnime = (props) => {
     const [updated, setUpdated] = useState(false)
     const [anime, setAnime] = useState(null)
     const {id} = useParams()
+    const navigate = useNavigate()
     const {user} = props
 
 
@@ -23,6 +24,12 @@ const ShowAnime = (props) => {
             .catch(console.error)
     },[updated])
 
+
+    const deleteAnime = () => {
+        removeAnime(user, anime.id)
+            .then(()=> {navigate('/')})
+            .catch(console.error)
+    }
 
     if(!anime) {
         return (
@@ -50,6 +57,10 @@ const ShowAnime = (props) => {
                     </Card.Text>
                         <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
                             Edit Anime
+                        </Button>
+                        {/* delete button */}
+                        <Button onClick={() => deleteAnime()} className="m-2" variant="danger">
+                            Delete Anime
                         </Button>
                 </Card.Body>
             </Card>

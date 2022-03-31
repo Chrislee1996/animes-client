@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { Redirect, Link } from 'react-router-dom'
+import {showCurrentAnime} from '../../api/animes'
+import {useParams} from 'react-router-dom'
 
 
 const ShowAnimes = (props) => {
     const [anime, setAnime] = useState(null)
-    
+    const {animeId} = useParams()
+
+    useEffect(() => {
+        console.log('anime id:', animeId)
+        showCurrentAnime(animeId)
+            .then(anime => {
+                setAnime(anime.data.anime)
+            })
+            .catch(console.error)
+    },[])
+
     if (!anime) {
         return <p>loading...</p>
     } 
@@ -12,7 +23,7 @@ const ShowAnimes = (props) => {
     return(
         <div>
             <h1>testing</h1>
-            <h3>{anime.title}</h3>
+        <h3>{anime.title}</h3>
         </div>
 
     )

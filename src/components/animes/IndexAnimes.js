@@ -1,8 +1,13 @@
 import React, {useState, useEffect } from 'react'
 import { getAllAnimes } from '../../api/animes'
 import { Link } from 'react-router-dom'
+import { Card } from 'react-bootstrap'
 
-
+const cardContainerLayout = {
+    display: 'flex',
+    justifyContent: 'center',
+    flexFlow: 'row wrap'
+}
 
 const IndexAnimes = (props) => {
     const [animes, setAnimes] = useState(null)
@@ -22,31 +27,28 @@ const IndexAnimes = (props) => {
         return <p>No animes to display. Go Create some</p>
     }
 
-    let animesJsx
+    let animeCards
 
     if (animes.length > 0) {
-        animesJsx = animes.map(anime => (
-            <div key={anime._id}>
-                <div class="card, text-info bg-dark" style={{width:"30em", border:"solid 1px"}}>
-                    <div class ='card-header'> 
-                        <Link to = {`/animes/${anime.id}`}> <h4 class="card-title"> {anime.titleAndYear}</h4> </Link>
-                        <div class='card-body'>
-                            <div class='card-title'>
-                                <Link to = {`/animes/${anime.id}`}> <img src={`${anime.imageOfAnime}`}  width='250' height='300' /></Link>
-                                <h5 class='card-text'>{anime.status} </h5> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        animeCards = animes.map(anime => (
+            <Card key={anime.id} style={{ width: '30%', border:"solid 1px"}} className="m-2 bg-dark text-info"  >
+                <Card.Header>{anime.fullTitle}</Card.Header>
+                <Card.Body>
+                    <Card.Text>
+                        <Link to ={`/animes/${anime.id}`}> <h4> {anime.titleAndYear} </h4></Link>
+                        <Link to ={`/animes/${anime.id}`}><img src={`${anime.imageOfAnime}`} width='250' height='300'/></Link>
+                        <p>{anime.genre}</p>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
         ))
     }
 
     return (
         <>
             <h3 class='text-center'>Animes</h3>
-            <div class ="card-group">
-                {animesJsx}
+            <div style={cardContainerLayout}>
+                {animeCards}
             </div>
         </>
     )

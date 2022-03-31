@@ -5,3 +5,9 @@ import axios from 'axios'
 export const getAllAnimes = () => {
     return axios(`${apiUrl}/animes`)
 }
+
+//show function
+export const showCurrentAnime = (animeId) => {
+    console.log('this is the anime Id',animeId )
+    return axios(`${apiUrl}/animes/${animeId}`)
+}

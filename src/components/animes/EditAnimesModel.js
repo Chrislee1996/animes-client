@@ -41,7 +41,7 @@ const EditAnimesModel = (props) => {
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton></Modal.Header>
-            <Modal.Body>
+            <Modal.Body className='bg-dark text-info'>
                 <AnimeForm 
                     anime={anime}
                     handleChange={handleChange}

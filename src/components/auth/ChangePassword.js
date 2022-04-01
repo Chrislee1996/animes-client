@@ -53,7 +53,7 @@ const ChangePassword = (props) => {
 
 
     return (
-        <div className='row'>
+        <div>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Change Password</h3>
                 <Form onSubmit={onChangePassword}>

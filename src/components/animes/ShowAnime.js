@@ -13,7 +13,7 @@ const ShowAnime = (props) => {
     const [anime, setAnime] = useState(null)
     const {id} = useParams()
     const navigate = useNavigate()
-    const {user} = props
+    const {user,msgAlert} = props
 
 
     useEffect(() => {
@@ -27,8 +27,21 @@ const ShowAnime = (props) => {
 
     const deleteAnime = () => {
         removeAnime(user, anime.id)
+        .then(() => {
+            msgAlert({
+                heading: 'Anime Removed!',
+                message: 'Anime Successfully deleted',
+                variant: 'success',
+            })
+        })
             .then(()=> {navigate('/')})
-            .catch(console.error)
+            .catch(() => {
+                msgAlert({
+                    heading: 'Something Went Wrong',
+                    message: 'Unable to delete',
+                    variant: 'danger',
+                })
+            })
     }
 
     if(!anime) {
@@ -47,9 +60,9 @@ const ShowAnime = (props) => {
         <Container className='fluid'> 
             <Card className='text-info bg-dark'>
                 <Card.Header className="display-4">{anime.title}</Card.Header>
-                <small style={{position:"absolute",top:0, right:0}}>Genre: {anime.genre}</small><br/>
-                <small style={{position:"absolute",top:50 , right:0}}>Status:{anime.onGoing ? 'Still Airing' : 'Finished Airing'}</small>
-                <small style={{position:"absolute",top:100 , right:0}}>Year of Release: {anime.yearOfRelease}</small><br/>
+                <h6 style={{position:"absolute",top:100, right:0}}>Genre: {anime.genre}</h6><br/>
+                <h6 style={{position:"absolute",top:150, right:0}}>Status:{anime.onGoing ? 'Still Airing' : 'Finished Airing'}</h6>
+                <h6 style={{position:"absolute",top:200 , right:0}}>Year of Release: {anime.yearOfRelease}</h6><br/>
                 <Card.Header><img src={`${anime.imageOfAnime}`} width='250' height='300'/></Card.Header>
                 <Card.Body>
                     <Card.Text>

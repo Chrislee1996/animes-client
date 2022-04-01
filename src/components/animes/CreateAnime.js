@@ -45,12 +45,15 @@ const handleSubmit = (e) => {
 }
 
 return (
-    <AnimeForm
+    <div className="text-info bg-dark">
+        <AnimeForm
         anime={anime}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         heading='Add a new Anime'
     />
+    </div>
+
     )
 
 }

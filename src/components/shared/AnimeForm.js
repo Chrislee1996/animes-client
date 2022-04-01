@@ -18,23 +18,17 @@ const AnimeForm = (props) => {
                     onChange={handleChange}
             />
                 <Form.Label>Description of Anime</Form.Label>
-                <Form.Control
-                    placeholder="Anime name"
+                <Form.Control as='textarea'
+                    placeholder="Description of Anime"
                     value={anime.description}
                     name='description'
                     onChange={handleChange}
             />
                 <Form.Label>Genre</Form.Label>
                 <Form.Control
-                    placeholder="Anime name"
+                    placeholder="Genre"
                     value={anime.genre}
                     name='genre'
-                    onChange={handleChange}
-            />
-                <Form.Check
-                    label='Is the anime on going?'
-                    name='onGoing'
-                    defaultChecked={anime.onGoing}
                     onChange={handleChange}
             />
                 <Form.Label>Year Of Release</Form.Label>
@@ -45,11 +39,17 @@ const AnimeForm = (props) => {
                     name='yearOfRelease'
                     onChange={handleChange}
             />
+                <Form.Check
+                    label='Is the Anime still on Air?'
+                    name='onGoing'
+                    defaultChecked={anime.onGoing}
+                    onChange={handleChange}
+            />
                 <Form.Label>Enter Url of Anime</Form.Label>
                 <Form.Control
                     type='url'
                     placeholder="Image"
-                    value={anime.image}
+                    value={anime.imageOfAnime}
                     name='imageOfAnime'
                     onChange={handleChange}
             />
